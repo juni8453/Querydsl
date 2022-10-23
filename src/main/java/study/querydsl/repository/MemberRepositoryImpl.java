@@ -18,14 +18,14 @@ import static study.querydsl.entity.QTeam.team;
 
 public class MemberRepositoryImpl implements MemberRepositoryCustom {
 
-        private final JPAQueryFactory queryFactory;
+    private final JPAQueryFactory queryFactory;
 
     public MemberRepositoryImpl(EntityManager em) {
-            this.queryFactory = new JPAQueryFactory(em);
-        }
+        this.queryFactory = new JPAQueryFactory(em);
+    }
 
-        @Override
-        public List<MemberTeamDto> search(MemberSearchCondition condition) {
+    @Override
+    public List<MemberTeamDto> search(MemberSearchCondition condition) {
         return queryFactory
             .select(new QMemberTeamDto(
                 member.id.as("memberId"),
